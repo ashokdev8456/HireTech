@@ -1,0 +1,6 @@
+# HireTech Robots Configuration
+User-agent: *
+Allow: /
+
+# Sitemap Index
+Sitemap: https://hiretech.com/sitemap.xml

@@ -525,6 +525,14 @@ const HeroSection = () => {
                   {activeSlide.description}
                 </p>
 
+                {/* Mobile-Only Box: Displays right after the description text on mobile screens */}
+                <div className="block lg:hidden my-3.5 w-full">
+                  {activeSlide.type === 'mnc' && <MncPlacementsCard />}
+                  {activeSlide.type === 'support' && <WorkSupportCard />}
+                  {activeSlide.type === 'corporate' && <CorporateCareersCard />}
+                  {activeSlide.type === 'tech' && <TechStackCard />}
+                </div>
+
                 {/* Core Pillars / Highlights */}
                 <div className="flex flex-wrap gap-1.5 sm:gap-2.5 mb-4 sm:mb-6">
                   {activeSlide.highlights.map(({ icon: Icon, label, color }) => (
@@ -568,10 +576,21 @@ const HeroSection = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Floating Social Proof Badges on Mobile */}
+                <div className="flex lg:hidden items-center justify-between mt-3 px-1">
+                  <div className="inline-flex items-center gap-1.5 py-1 px-2.5 bg-slate-950/70 backdrop-blur-md rounded-full border border-white/20 shadow-md text-[10px] font-semibold text-white cursor-default">
+                    <span className="text-amber-400">★</span> 4.9/5 Student Rating
+                  </div>
+                  <div className="inline-flex items-center gap-1.5 py-1 px-2.5 bg-slate-950/70 backdrop-blur-md rounded-full border border-white/20 shadow-md text-[10px] font-semibold text-white cursor-default">
+                    <Star size={12} className="text-sky-300 fill-sky-300 shrink-0" aria-hidden="true" />{' '}
+                    100+ Hiring Partners
+                  </div>
+                </div>
               </div>
 
-              {/* Right Column: EACH SLIDE HAS A COMPLETELY UNIQUE INTERACTIVE CARD */}
-              <div className="lg:col-span-5 flex justify-center w-full mt-2 lg:mt-0">
+              {/* Desktop-Only Right Column: Renders side-by-side on desktop */}
+              <div className="hidden lg:flex lg:col-span-5 justify-center w-full mt-2 lg:mt-0">
                 <div className="relative mx-auto max-w-md w-full">
                   {activeSlide.type === 'mnc' && <MncPlacementsCard />}
                   {activeSlide.type === 'support' && <WorkSupportCard />}

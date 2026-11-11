@@ -33,6 +33,8 @@ const slides = [
     titleSuffix: 'with Top MNCs',
     description:
       'From in-depth IT & Non-IT training to ATS resume building, mock interviews, and guaranteed placement drives with top multinational tech giants.',
+    cardNote:
+      'Direct hiring drives active every week with 100+ partner tech companies. Includes 1-on-1 interview drills and salary negotiation guidance.',
     highlights: [
       { icon: Building2, label: 'MNC Placement Drives', color: 'bg-slate-950/40 text-blue-200 border-white/20' },
       { icon: GraduationCap, label: 'ATS Resumes & Mock Screens', color: 'bg-slate-950/40 text-indigo-200 border-white/20' },
@@ -59,6 +61,8 @@ const slides = [
     titleSuffix: 'Work Support',
     description:
       'Stuck on complex production bugs or unfamiliar frameworks? Our senior engineers assist you 1-on-1 in real-time across React, Java, Python, Node, and cloud pipelines.',
+    cardNote:
+      'Connect instantly with senior software architects for live 1-on-1 debugging sessions under a 100% confidential zero-data-retention guarantee.',
     highlights: [
       { icon: Code2, label: 'React, Node, Java & Python', color: 'bg-slate-950/40 text-emerald-200 border-white/20' },
       { icon: Zap, label: 'Live Screen Debugging', color: 'bg-slate-950/40 text-amber-200 border-white/20' },
@@ -85,6 +89,8 @@ const slides = [
     titleSuffix: 'Opportunities',
     description:
       'Fast-track placement assistance for high-demand administrative, customer care, data handling, and operational roles with dedicated workplace communication drills.',
+    cardNote:
+      'Fast-track corporate batches with flexible shift timings. Guaranteed interview slots and fast-track offer rollout within 30 days.',
     highlights: [
       { icon: Users, label: 'Data Entry & Back Office', color: 'bg-slate-950/40 text-purple-200 border-white/20' },
       { icon: Clock, label: 'Placements in 30-60 Days', color: 'bg-slate-950/40 text-cyan-200 border-white/20' },
@@ -111,6 +117,8 @@ const slides = [
     titleSuffix: '& Real Projects',
     description:
       'Learn React.js, Python, Java, Node.js, and SQL with hands-on capstone builds, scalable microservices architectures, and industry code reviews.',
+    cardNote:
+      'Build industry-grade portfolio capstones with real-world architectures, live GitHub PR code reviews, and recognized certifications.',
     highlights: [
       { icon: Code2, label: 'React, JavaScript & Frontend', color: 'bg-slate-950/40 text-sky-200 border-white/20' },
       { icon: Database, label: 'Python, Java & SQL Databases', color: 'bg-slate-950/40 text-orange-200 border-white/20' },
@@ -531,6 +539,11 @@ const HeroSection = () => {
                   {activeSlide.type === 'support' && <WorkSupportCard />}
                   {activeSlide.type === 'corporate' && <CorporateCareersCard />}
                   {activeSlide.type === 'tech' && <TechStackCard />}
+
+                  {/* 1-2 lines descriptive note right after the interactive card */}
+                  <p className="text-xs text-slate-200/90 font-medium leading-relaxed mt-2.5 mb-1 px-1 drop-shadow-sm">
+                    {activeSlide.cardNote}
+                  </p>
                 </div>
 
                 {/* Core Pillars / Highlights */}
@@ -596,6 +609,11 @@ const HeroSection = () => {
                   {activeSlide.type === 'support' && <WorkSupportCard />}
                   {activeSlide.type === 'corporate' && <CorporateCareersCard />}
                   {activeSlide.type === 'tech' && <TechStackCard />}
+
+                  {/* 1-2 lines descriptive note after the interactive card */}
+                  <p className="text-xs text-slate-300 font-medium leading-relaxed mt-2.5 px-1 drop-shadow-sm text-center">
+                    {activeSlide.cardNote}
+                  </p>
 
                   {/* Floating Badges */}
                   <div className="flex items-center justify-between mt-2.5 sm:mt-3 px-1 sm:px-2">

@@ -92,10 +92,10 @@ const Navbar = () => {
   return (
     <nav
       aria-label="Main Navigation"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 bg-white ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md shadow-blue-100/50 border-b border-gray-100'
-          : 'bg-white/80 backdrop-blur-md border-b border-blue-100/40'
+          ? 'shadow-md shadow-gray-200/60 border-b border-gray-200'
+          : 'border-b border-gray-200/70 shadow-xs'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

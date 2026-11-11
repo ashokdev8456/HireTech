@@ -43,7 +43,6 @@ const slides = [
     stats: [
       { label: 'Placements Delivered', value: '500+' },
       { label: 'Hiring Partners', value: '100+' },
-      { label: 'Students Trained', value: '2000+' },
       { label: 'Placement Rate', value: '95%' },
     ],
   },
@@ -68,10 +67,9 @@ const slides = [
     primaryCta: { label: 'Get Instant Work Support', path: '/services#work-support' },
     secondaryCta: { label: 'Chat on WhatsApp', path: '/contact' },
     stats: [
-      { label: 'Availability', value: '24/7' },
+      { label: 'Support Availability', value: '24/7' },
       { label: 'Tech Stacks', value: '15+' },
-      { label: 'Task Resolution', value: '100%' },
-      { label: 'Response Time', value: '< 30 Min' },
+      { label: 'Resolution Rate', value: '100%' },
     ],
   },
   {
@@ -98,7 +96,6 @@ const slides = [
       { label: 'Avg. Placement Time', value: '30-60D' },
       { label: 'Corporate Recruiters', value: '50+' },
       { label: 'Candidates Placed', value: '1000+' },
-      { label: 'Joining Type', value: 'Immediate' },
     ],
   },
   {
@@ -122,7 +119,6 @@ const slides = [
     primaryCta: { label: 'Explore Technologies', path: '/technologies' },
     secondaryCta: { label: 'Get Free Course Syllabus', path: '/contact' },
     stats: [
-      { label: 'Tech Modules', value: '8+' },
       { label: 'Real Projects', value: '20+' },
       { label: 'Trainer Experience', value: '10+ Yrs' },
       { label: 'Demo Class', value: '100% Free' },
@@ -556,8 +552,8 @@ const HeroSection = () => {
                   </Link>
                 </div>
 
-                {/* Stats Bar */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-3.5 rounded-2xl bg-slate-950/45 backdrop-blur-md border border-white/15 shadow-xl max-w-xl">
+                {/* Stats Bar (3 items per slide) */}
+                <div className="grid grid-cols-3 gap-3 sm:gap-5 p-3.5 sm:p-4 rounded-2xl bg-slate-950/50 backdrop-blur-md border border-white/15 shadow-xl max-w-xl">
                   {activeSlide.stats.map((stat) => (
                     <div key={stat.label}>
                       <div className="text-xl sm:text-2xl lg:text-3xl font-black text-sky-300 drop-shadow-md leading-tight">

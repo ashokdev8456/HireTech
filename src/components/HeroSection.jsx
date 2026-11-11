@@ -46,6 +46,9 @@ const slides = [
       { label: 'Placement Rate', value: '95%' },
     ],
     card: {
+      image: '/carousel/mnc-placements.jpg',
+      imageAlt: 'HireTech students and engineers collaborating in a modern corporate MNC tech environment',
+      imageOverlayTag: 'Top Recruiters • 500+ Hired',
       tag: 'Active Hiring',
       tagColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
       title: 'HireTech Career Hub',
@@ -53,7 +56,6 @@ const slides = [
       tracks: [
         { name: 'MNC Placements Track', icon: Building2, pct: 95, status: 'Top Recruiters' },
         { name: 'Full Stack Engineering', icon: Code2, pct: 92, status: 'Live Mentors' },
-        { name: 'Mock Technical Screens', icon: Users, pct: 88, status: 'Interview Ready' },
       ],
       features: [
         '1-on-1 Mentorship',
@@ -91,6 +93,9 @@ const slides = [
       { label: 'Response Time', value: '< 30 Min' },
     ],
     card: {
+      image: '/carousel/work-support.jpg',
+      imageAlt: 'Senior software architect assisting developer on live multi-screen coding environment',
+      imageOverlayTag: '1-on-1 Live Debugging • Zero Code Leaks',
       tag: 'Live Engineers Online',
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       title: 'Live Work Support Console',
@@ -98,7 +103,6 @@ const slides = [
       tracks: [
         { name: 'Frontend (React, Next.js)', icon: Code2, pct: 98, status: 'Active Support' },
         { name: 'Backend (Java, Spring, Python)', icon: Database, pct: 94, status: 'Architecture' },
-        { name: 'Database & Production APIs', icon: Zap, pct: 90, status: 'Bug Resolution' },
       ],
       features: [
         'Live Code Debugging',
@@ -136,18 +140,20 @@ const slides = [
       { label: 'Joining Type', value: 'Immediate' },
     ],
     card: {
+      image: '/carousel/corporate-careers.jpg',
+      imageAlt: 'Corporate team collaborating in customer operations and business management environment',
+      imageOverlayTag: 'Fast-Track Walk-ins • 30-Day Onboarding',
       tag: 'Direct Walk-ins Open',
       tagColor: 'bg-purple-50 text-purple-700 border-purple-200',
       title: 'Corporate Placement Wing',
       subtitle: 'Fast-Track Career Openings',
       tracks: [
         { name: 'Data Management & MIS', icon: Database, pct: 96, status: 'High Demand' },
-        { name: 'Customer Care & Chat Roles', icon: Headphones, pct: 92, status: 'Direct Hiring' },
-        { name: 'Corporate Communication', icon: Users, pct: 90, status: 'Interview Drills' },
+        { name: 'Customer Care & Operations', icon: Headphones, pct: 92, status: 'Direct Hiring' },
       ],
       features: [
         'Communication Workshops',
-        'Direct Company Walk-in Slots',
+        'Direct Walk-in Slots',
         'Immediate Joining Batches',
         'Flexible Shift Options',
       ],
@@ -181,6 +187,9 @@ const slides = [
       { label: 'Demo Class', value: '100% Free' },
     ],
     card: {
+      image: '/carousel/tech-stack.jpg',
+      imageAlt: 'Modern developer workspace with clean programming environment and laptop showing code',
+      imageOverlayTag: '8+ Frameworks • 20+ Real Projects',
       tag: 'Hands-on Labs',
       tagColor: 'bg-blue-50 text-blue-700 border-blue-200',
       title: 'Full Stack Academy',
@@ -188,7 +197,6 @@ const slides = [
       tracks: [
         { name: 'Frontend Architecture', icon: Code2, pct: 96, status: 'React & Tailwind' },
         { name: 'Backend API Engineering', icon: Database, pct: 94, status: 'Java & Python' },
-        { name: 'System Design & SQL', icon: Zap, pct: 91, status: 'Cloud & Database' },
       ],
       features: [
         'Real-world Capstones',
@@ -206,7 +214,7 @@ const slides = [
 
 const slideVariants = {
   enter: (direction) => ({
-    x: direction > 0 ? 40 : -40,
+    x: direction > 0 ? 30 : -30,
     opacity: 0,
   }),
   center: {
@@ -218,7 +226,7 @@ const slideVariants = {
     },
   },
   exit: (direction) => ({
-    x: direction < 0 ? 40 : -40,
+    x: direction < 0 ? 30 : -30,
     opacity: 0,
     transition: {
       duration: 0.25,
@@ -282,10 +290,10 @@ const HeroSection = () => {
       onMouseLeave={() => setIsPaused(false)}
       aria-label="Featured Offerings Carousel"
     >
-      {/* Background Ambient Lights */}
+      {/* Background Ambient Lights with subtle slide blur */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 -mt-12 -mr-12 w-80 h-80 rounded-full bg-blue-200/30 blur-3xl" />
-        <div className="absolute bottom-0 left-0 -mb-16 -ml-16 w-80 h-80 rounded-full bg-indigo-200/25 blur-3xl" />
+        <div className="absolute top-0 right-0 -mt-12 -mr-12 w-96 h-96 rounded-full bg-blue-200/30 blur-3xl" />
+        <div className="absolute bottom-0 left-0 -mb-16 -ml-16 w-96 h-96 rounded-full bg-indigo-200/25 blur-3xl" />
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -325,14 +333,14 @@ const HeroSection = () => {
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => paginate(-1)}
-              className="p-1.5 sm:p-2 rounded-xl bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-700 shadow-xs transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+              className="p-1.5 sm:p-2 rounded-xl bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-700 shadow-xs transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer"
               aria-label="Previous slide"
             >
               <ChevronLeft size={16} aria-hidden="true" />
             </button>
             <button
               onClick={() => paginate(1)}
-              className="p-1.5 sm:p-2 rounded-xl bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-700 shadow-xs transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+              className="p-1.5 sm:p-2 rounded-xl bg-white hover:bg-blue-50 border border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-700 shadow-xs transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 cursor-pointer"
               aria-label="Next slide"
             >
               <ChevronRight size={16} aria-hidden="true" />
@@ -341,7 +349,7 @@ const HeroSection = () => {
         </div>
 
         {/* Dynamic Carousel Slide View */}
-        <div className="relative min-h-[540px] sm:min-h-[480px] lg:min-h-[440px]">
+        <div className="relative min-h-[560px] sm:min-h-[500px] lg:min-h-[460px]">
           <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={activeSlide.id}
@@ -416,45 +424,53 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Right Column Visual / Interactive Card */}
+              {/* Right Column Visual Media Card */}
               <div className="lg:col-span-5 flex justify-center w-full">
                 <div className="relative mx-auto max-w-md w-full">
-                  {/* Main Card */}
-                  <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-xl shadow-blue-100/70 border border-gray-100">
-                    {/* Header */}
-                    <div className="flex items-center justify-between pb-3.5 border-b border-gray-100 mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black text-lg shadow-sm shadow-blue-300">
-                          H
-                        </div>
-                        <div>
-                          <div className="text-base font-bold text-gray-900 leading-tight">
-                            {activeSlide.card.title}
-                          </div>
-                          <div className="text-xs font-medium text-blue-600">
-                            {activeSlide.card.subtitle}
-                          </div>
-                        </div>
+                  {/* Main Card with Featured Visual Banner */}
+                  <div className="bg-white rounded-3xl p-4 sm:p-5 shadow-xl shadow-blue-100/70 border border-gray-100 overflow-hidden">
+                    {/* Visual Slide Image Frame */}
+                    <div className="relative h-44 sm:h-48 rounded-2xl overflow-hidden mb-3.5 group">
+                      <img
+                        src={activeSlide.card.image}
+                        alt={activeSlide.card.imageAlt}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="eager"
+                      />
+                      {/* Gradient overlay for contrast */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-gray-900/20 to-transparent" />
+
+                      {/* Top Badges */}
+                      <div className="absolute top-2.5 left-2.5 right-2.5 flex items-center justify-between">
+                        <span className="px-2.5 py-1 bg-white/90 backdrop-blur-md text-gray-900 font-bold text-[11px] rounded-lg shadow-xs">
+                          {activeSlide.card.title}
+                        </span>
+                        <span
+                          className={`px-2.5 py-1 text-[11px] font-bold rounded-lg backdrop-blur-md shadow-xs ${activeSlide.card.tagColor}`}
+                        >
+                          {activeSlide.card.tag}
+                        </span>
                       </div>
-                      <span
-                        className={`px-2.5 py-1 border text-xs font-bold rounded-full ${activeSlide.card.tagColor}`}
-                      >
-                        {activeSlide.card.tag}
-                      </span>
+
+                      {/* Bottom Image Caption Tag */}
+                      <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold drop-shadow-sm">
+                        <span>{activeSlide.card.imageOverlayTag}</span>
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                      </div>
                     </div>
 
                     {/* Progress Tracks */}
-                    <div className="space-y-2.5 mb-4">
+                    <div className="space-y-2 mb-3">
                       {activeSlide.card.tracks.map((track) => {
                         const IconComp = track.icon;
                         return (
                           <div
                             key={track.name}
-                            className="py-2 px-3 rounded-xl bg-slate-50 hover:bg-blue-50/50 border border-gray-100 hover:border-blue-200/80 transition-all cursor-default"
+                            className="py-1.5 px-3 rounded-xl bg-slate-50 hover:bg-blue-50/50 border border-gray-100 transition-all cursor-default"
                           >
-                            <div className="flex items-center justify-between mb-1.5">
-                              <div className="flex items-center gap-2">
-                                <IconComp size={14} className="text-blue-600" aria-hidden="true" />
+                            <div className="flex items-center justify-between mb-1">
+                              <div className="flex items-center gap-1.5">
+                                <IconComp size={13} className="text-blue-600" aria-hidden="true" />
                                 <span className="text-xs font-bold text-gray-800">{track.name}</span>
                               </div>
                               <span className="text-[11px] font-semibold text-blue-600">
@@ -475,27 +491,27 @@ const HeroSection = () => {
                     </div>
 
                     {/* Key Points */}
-                    <div className="grid grid-cols-2 gap-2 text-xs text-gray-600 mb-4">
+                    <div className="grid grid-cols-2 gap-1.5 text-xs text-gray-600 mb-3.5">
                       {activeSlide.card.features.map((feat) => (
                         <div key={feat} className="flex items-center gap-1.5">
-                          <CheckCircle2 size={14} className="text-emerald-600 shrink-0" aria-hidden="true" />
-                          <span>{feat}</span>
+                          <CheckCircle2 size={13} className="text-emerald-600 shrink-0" aria-hidden="true" />
+                          <span className="text-[11px] sm:text-xs font-medium">{feat}</span>
                         </div>
                       ))}
                     </div>
 
-                    {/* Quick Link */}
+                    {/* Action Button */}
                     <Link
                       to={activeSlide.card.buttonPath}
-                      className="flex items-center justify-center gap-2 w-full py-2.5 sm:py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs sm:text-sm font-bold rounded-xl transition-all shadow-md shadow-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+                      className="flex items-center justify-center gap-2 w-full py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs sm:text-sm font-bold rounded-xl transition-all shadow-md shadow-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
                     >
                       <span>{activeSlide.card.buttonLabel}</span>
-                      <ArrowRight size={15} aria-hidden="true" />
+                      <ArrowRight size={14} aria-hidden="true" />
                     </Link>
                   </div>
 
                   {/* Floating badges within container margins */}
-                  <div className="flex items-center justify-between mt-3 px-2">
+                  <div className="flex items-center justify-between mt-2.5 px-2">
                     <div className="inline-flex items-center gap-1.5 py-1 px-3 bg-white rounded-full border border-gray-100 shadow-sm hover:shadow-md transition-shadow text-[11px] font-semibold text-gray-700 cursor-default">
                       <span className="text-amber-500">★</span> {activeSlide.card.ratingText}
                     </div>

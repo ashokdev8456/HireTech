@@ -13,8 +13,6 @@ import {
   Zap,
   ShieldCheck,
   Clock,
-  ChevronLeft,
-  ChevronRight,
   Sparkles,
   Headphones,
   Database,
@@ -428,7 +426,6 @@ const contentVariants = {
 
 const HeroSection = () => {
   const [[currentSlide, direction], setSlide] = useState([0, 0]);
-  const [isPaused, setIsPaused] = useState(false);
   const autoplayTimerRef = useRef(null);
 
   const activeSlide = slides[currentSlide];
@@ -445,22 +442,16 @@ const HeroSection = () => {
     []
   );
 
-  const goToSlide = (index) => {
-    setSlide(([curr]) => [index, index > curr ? 1 : -1]);
-  };
-
-  // Autoplay
+  // Autoplay every 2.5 seconds automatically
   useEffect(() => {
-    if (isPaused) return;
-
     autoplayTimerRef.current = setInterval(() => {
       paginate(1);
-    }, 6000);
+    }, 2500);
 
     return () => {
       if (autoplayTimerRef.current) clearInterval(autoplayTimerRef.current);
     };
-  }, [isPaused, paginate]);
+  }, [paginate]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -477,8 +468,6 @@ const HeroSection = () => {
   return (
     <section
       className="relative pt-18 sm:pt-20 lg:pt-24 pb-8 sm:pb-10 lg:pb-12 overflow-hidden bg-slate-900 text-white border-b border-slate-700/60"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       aria-label="Featured Offerings Carousel"
     >
       {/* 1. Full-Bleed Background Cover Images with Smooth Crossfade */}
@@ -502,57 +491,6 @@ const HeroSection = () => {
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Top Controls: Indicators & Navigation Arrows */}
-        <div className="flex items-center justify-between mb-4 sm:mb-6">
-          {/* Slide Indicator Pills */}
-          <div className="flex items-center gap-2">
-            {slides.map((slide, idx) => (
-              <button
-                key={slide.id}
-                onClick={() => goToSlide(idx)}
-                className={`group relative h-2.5 sm:h-3 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 cursor-pointer ${
-                  idx === currentSlide
-                    ? 'w-10 sm:w-12 bg-blue-500 shadow-md shadow-blue-500/50'
-                    : 'w-2.5 sm:w-3 bg-white/40 hover:bg-white/70'
-                }`}
-                aria-label={`Go to slide ${idx + 1}: ${slide.titleHighlight}`}
-                aria-current={idx === currentSlide ? 'true' : 'false'}
-              >
-                {/* Active animated progress bar inside pill */}
-                {idx === currentSlide && !isPaused && (
-                  <motion.span
-                    initial={{ width: '0%' }}
-                    animate={{ width: '100%' }}
-                    transition={{ duration: 6, ease: 'linear' }}
-                    className="absolute inset-0 rounded-full bg-white/50"
-                  />
-                )}
-              </button>
-            ))}
-            <span className="text-xs font-semibold text-white drop-shadow-md ml-2 hidden sm:inline-block">
-              {currentSlide + 1} / {slides.length}
-            </span>
-          </div>
-
-          {/* Prev / Next Arrows */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => paginate(-1)}
-              className="p-2 rounded-xl bg-slate-950/50 hover:bg-slate-900/80 backdrop-blur-md border border-white/25 text-white shadow-lg transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 cursor-pointer"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft size={18} aria-hidden="true" />
-            </button>
-            <button
-              onClick={() => paginate(1)}
-              className="p-2 rounded-xl bg-slate-950/50 hover:bg-slate-900/80 backdrop-blur-md border border-white/25 text-white shadow-lg transition-all active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 cursor-pointer"
-              aria-label="Next slide"
-            >
-              <ChevronRight size={18} aria-hidden="true" />
-            </button>
-          </div>
-        </div>
-
         {/* Foreground Carousel Slide Content */}
         <div className="relative min-h-[520px] sm:min-h-[460px] lg:min-h-[420px]">
           <AnimatePresence custom={direction} mode="wait">

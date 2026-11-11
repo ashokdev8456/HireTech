@@ -487,13 +487,13 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
-            className="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.88] contrast-[1.05]"
+            className="absolute inset-0 w-full h-full object-cover object-[center_top] sm:object-center filter brightness-[0.98] contrast-[1.06]"
           />
         </AnimatePresence>
 
-        {/* 2. Responsive Gradient Overlay: Rich on mobile for clarity, elegant on desktop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/75 to-slate-950/90 lg:bg-gradient-to-r lg:from-slate-950/88 lg:via-slate-950/45 lg:to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/50" />
+        {/* 2. Responsive Gradient Overlay: Translucent on mobile so the photo is bright and vivid, rich on desktop for text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/25 to-slate-950/70 lg:bg-gradient-to-r lg:from-slate-950/88 lg:via-slate-950/45 lg:to-transparent" />
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/50" />
       </div>
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -529,7 +529,7 @@ const HeroSection = () => {
                 </h1>
 
                 {/* Description */}
-                <p className="text-slate-100 text-xs sm:text-base lg:text-lg leading-relaxed mb-3.5 sm:mb-5 max-w-xl drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)] font-medium">
+                <p className="text-white text-xs sm:text-base lg:text-lg leading-relaxed mb-3.5 sm:mb-5 max-w-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] font-medium">
                   {activeSlide.description}
                 </p>
 
@@ -541,7 +541,7 @@ const HeroSection = () => {
                   {activeSlide.type === 'tech' && <TechStackCard />}
 
                   {/* 1-2 lines descriptive note right after the interactive card */}
-                  <p className="text-xs text-slate-200/90 font-medium leading-relaxed mt-2.5 mb-1 px-1 drop-shadow-sm">
+                  <p className="text-xs text-slate-100 font-medium leading-relaxed mt-2.5 mb-1 px-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.95)]">
                     {activeSlide.cardNote}
                   </p>
                 </div>
